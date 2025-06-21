@@ -4,63 +4,151 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>aviaspin</title>
+  <!-- Иконки Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #111;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
       color: white;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
       gap: 30px;
       text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00d2ff;
+      box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease-out forwards;
+      animation-delay: 0.3s;
     }
     h1 {
       font-size: 2.5rem;
+      background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease-out forwards;
+      animation-delay: 0.5s;
     }
     .buttons {
       display: flex;
       flex-direction: column;
       gap: 20px;
-      width: 80%;
+      width: 100%;
       max-width: 300px;
     }
     a.button {
       text-decoration: none;
-      padding: 15px;
-      border-radius: 10px;
-      background: #222;
-      color: white;
-      border: 2px solid white;
+      padding: 15px 20px;
+      border-radius: 25px;
       font-size: 1.2rem;
+      font-weight: 600;
       transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    a.button:nth-child(1) { animation-delay: 0.7s; }
+    a.button:nth-child(2) { animation-delay: 0.9s; }
+    a.button:nth-child(3) { animation-delay: 1.1s; }
+    
+    .button.telegram {
+      background: linear-gradient(135deg, #0088cc, #00aced);
+      color: white;
+    }
+    .button.deposit {
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      color: white;
+    }
+    .button.instagram {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white;
     }
     a.button:hover {
-      background: white;
-      color: #111;
+      transform: translateY(-3px) !important;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+    a.button:active {
+      transform: translateY(1px) !important;
     }
     footer {
-      position: absolute;
-      bottom: 20px;
+      margin-top: 30px;
       font-size: 0.9rem;
-      color: #666;
+      color: rgba(255, 255, 255, 0.6);
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+      animation-delay: 1.3s;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(0, 210, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
     }
   </style>
 </head>
 <body>
+  
+  <img src="https://ibb.co/0jm4dZLb" alt="Avatar" class="avatar pulse">
+  
   <h1>@aviaspin</h1>
+  
   <div class="buttons">
-    <a class="button" href="https://t.me/aviaspin" target="_blank">Telegram</a>
-    <a class="button" href="https://1wilib.life/casino/list?open=register&p=skw9" target="_blank">ДЕПЧИК</a>
-    <a class="button" href="https://www.instagram.com/ruseasoon?igsh=aGFmZ3pmbmZsY2I1&utm_source=qr" target="_blank">Instagram</a>
+    <a class="button telegram" href="https://t.me/aviaspin" target="_blank">
+      <i class="fab fa-telegram"></i> Telegram
+    </a>
+    <a class="button deposit" href="https://1wilib.life/casino/list?open=register&p=skw9" target="_blank">
+      <i class="fas fa-coins"></i> ДЕПЧИК
+    </a>
+    <a class="button instagram" href="https://www.instagram.com/ruseasoon?igsh=aGFmZ3pmbmZsY2I1&utm_source=qr" target="_blank">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
   </div>
-  <footer>by @aviaspin</footer>
+  
+  <footer>
+    by @aviaspin
+  </footer>
+
+  <script>
+    // Добавляем небольшой эффект при загрузке
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.style.opacity = '1';
+    });
+  </script>
 </body>
 </html>
